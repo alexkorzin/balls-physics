@@ -31,6 +31,12 @@ gulp.task('copy:pages', function () {
         .pipe(gulp.dest(config.dest.root));
 });
 
+gulp.task('copy:sounds', function () {
+    return gulp
+        .src(config.src.root + '/sounds/*.*')
+        .pipe(gulp.dest(config.dest.root + '/sounds'));
+});
+
 gulp.task('copy:img', function () {
     return gulp
         .src([
@@ -45,10 +51,11 @@ gulp.task('copy', gulp.series(
     'copy:rootfiles',
     // 'copy:lib',
     // 'copy:data',
-    'copy:fonts'
+    'copy:fonts',
+    'copy:sounds'
 ));
 
 gulp.task('copy:watch', function () {
-    gulp.watch([config.src.img + '/*', config.src.fonts + '/*'], gulp.parallel('copy'));
+    gulp.watch([config.src.img + '/*', config.src.fonts + '/*', config.src + '/sounds/*.*'], gulp.parallel('copy'));
     gulp.watch([config.src.root + '/*.html'], gulp.parallel('copy:pages'));
 });

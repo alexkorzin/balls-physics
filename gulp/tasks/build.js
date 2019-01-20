@@ -23,11 +23,3 @@ gulp.task('build:dev', function (cb) {
     build(cb);
 });
 
-
-
-gulp.task('default', function (cb) {
-    gulp.parallel(
-        'task1',
-        'task2'
-    )(cb)
-});

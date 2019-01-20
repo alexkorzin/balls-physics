@@ -1,5 +1,6 @@
-import Mouse from './Mouse.js'
-import Ball from './Ball.js';
+import Mouse from './Mouse'
+import Ball from './Ball';
+import {playSound} from './sound';
 
 // ======Canvas======
 let screen = {
@@ -31,10 +32,11 @@ function ballsColision(ballCurrent, ball) {
     for (let j = 0; j < balls.length; j++) {
         if (j !== ballCurrent) {
             let is = ball.phys(balls[j], mouse);
-            if (is == true) {
+            if (is) {
                 count++;
                 conter.innerHTML= count;
-            }
+                playSound('bulk', {volume: .1})
+            } 
         }
         else {
             continue

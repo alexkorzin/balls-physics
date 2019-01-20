@@ -14,7 +14,6 @@ export default class Ball {
         this.color = obj.color || '#98ccd3';
         this.friction = 0.9;
         this.mass = this.radius;
-        this.gravity = 0.6;
     }
 
     draw(ctx, colorType) {
