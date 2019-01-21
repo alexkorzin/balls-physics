@@ -101,7 +101,7 @@ export default class Ball {
                     object.velocity.y = vFinal2.y;
                     this.velocity.x = vFinal1.x;
                     this.velocity.y = vFinal1.y;
-                    return true;
+                    return 1;
                 }
             }
         }

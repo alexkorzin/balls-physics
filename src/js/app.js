@@ -20,7 +20,9 @@ let conter = document.querySelector('.count');
 let count = 0;
 let mouseBallColor = '#00adb5';
 let ballsColor = '#f8b500';
-let ballsCount = 100;
+let ballsCount = 70;
+let ballsMinRadius = 5;
+let ballsMaxRadius = 35;
 
 // ======Get random number function======
 function getRandomArbitrary(min, max) {
@@ -31,6 +33,7 @@ function getRandomArbitrary(min, max) {
 function ballsColision(ballCurrent, ball) {
     for (let j = 0; j < balls.length; j++) {
         if (j !== ballCurrent) {
+            // when balls collides (not mouse)
             let is = ball.phys(balls[j], mouse);
             if (is) {
                 count++;
@@ -56,7 +59,7 @@ let mouseBall = new Ball({
 // ======Create little balls======
 let balls = [];
 for (let i = 0; i < ballsCount; i++) {
-    let radius = getRandomArbitrary(5, 20);
+    let radius = getRandomArbitrary(ballsMinRadius, ballsMaxRadius);
     let newBallCoords = {};
     newBallCoords = {
         x: getRandomArbitrary(radius, window.innerWidth - radius),
